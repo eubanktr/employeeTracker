@@ -1,0 +1,1 @@
+SELECT department_name AS department, id FROM department;

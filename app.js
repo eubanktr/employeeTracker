@@ -13,13 +13,29 @@ const db = mysql.createConnection(
   console.log(`YOU ARE NOW CONNECTED TO THE STAFF DB`)
 );
 
-var initPrompt = () => {
+const initPrompt = () => {
 inquirer.prompt([
   {
     type: 'list',
     message: 'What would you like to do?',
     name: 'initPrompt',
-    Choices: ['View all Departments', 'View all Roles', 'View all Employees', 'Add a department', 'Add a Role', 'Add an Employee', 'Update Emplyee Role', 'Leave Application']
+    choices: ['View all Departments', 'View all Roles', 'View all Employees', 'Add a department', 'Add a Role', 'Add an Employee', 'Update Emplyee Role', 'Leave Application']
   }
-]);
+])
+.then((answer) => {
+  console.log(answer);
+})
+.catch((error) => {
+  console.error(error)
+})
 };
+
+const addDept = () => {
+  inquirer.prompt([
+    {
+      type: 'input'
+    }
+  ]);
+};
+
+initPrompt();
